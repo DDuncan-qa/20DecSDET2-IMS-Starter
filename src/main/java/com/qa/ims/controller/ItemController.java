@@ -26,7 +26,7 @@ public class ItemController implements ICrudController<Item> {
     public List<Item> readAll() {
         List<Item> items = itemDao.readAll();
         for (Item item : items) {
-            LOGGER.info(item);
+            LOGGER.info(item.toString());
         }
         return items;
     }
@@ -34,10 +34,10 @@ public class ItemController implements ICrudController<Item> {
     @Override
     public Item create() {
         LOGGER.info("Please enter an item");
-        String itemName = javaUtilities.getString();
+        String name = javaUtilities.getString();
         LOGGER.info("Please enter an item value");
-        double itemValue = javaUtilities.getDouble();
-        Item item = itemDao.create(new Item(itemName, itemValue));
+        double value = javaUtilities.getDouble();
+        Item item = itemDao.create(new Item(name, value));
         LOGGER.info("Item created");
         return item;
     }

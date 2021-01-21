@@ -3,18 +3,18 @@ package com.qa.ims.persistence.domain;
 public class Item {
 	
 	private Long id;
-	private String itemName;
-	private double itemValue;
+	private String name;
+	private double value;
 
-	public Item(String itemName, double itemValue) {
-		this.setItemName(itemName);
-		this.setItemValue(itemValue);
+	public Item(String name, double value) {
+		this.setname(name);
+		this.setvalue(value);
 	}
 
-	public Item(Long id, String itemName, double itemValue) {
+	public Item(Long id, String name, double value) {
 		this.setId(id);
-		this.setItemName(itemName);
-		this.setItemValue(itemValue);
+		this.setname(name);
+		this.setvalue(value);
 		
 		
 		
@@ -31,26 +31,26 @@ public class Item {
 		this.id = id;
 	}
 
-	public String getItemName() {
-		return itemName;
+	public String getname() {
+		return name;
 	}
 
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setname(String name) {
+		this.name = name;
 	}
 
-	public double getItemValue() {
-		return itemValue;
+	public double getvalue() {
+		return value;
 	}
 
-	public void setItemValue(double itemValue) {
-		this.itemValue = itemValue;
+	public void setvalue(double value) {
+		this.value = value;
 	
 	}
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", itemName=" + itemName + ", itemValue=" + itemValue + "]";
+		return "Item [id=" + id + ", name=" + name + ", value=" + value + "]";
 	}
 
 	@Override
@@ -58,9 +58,9 @@ public class Item {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(itemValue);
+		temp = Double.doubleToLongBits(value);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
@@ -79,12 +79,12 @@ public class Item {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (itemName == null) {
-			if (other.itemName != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!itemName.equals(other.itemName))
+		} else if (!name.equals(other.name))
 			return false;
-		if (Double.doubleToLongBits(itemValue) != Double.doubleToLongBits(other.itemValue))
+		if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
 			return false;
 		return true;
 	}
