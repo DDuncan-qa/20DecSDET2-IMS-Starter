@@ -18,20 +18,22 @@ public class ItemDao implements IDomainDao<Item> {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
+   
     @Override
-    public Item create(Item item) {
-        try (Connection connection = DatabaseUtilities.getInstance().getConnection();
-                PreparedStatement statement = connection
-                        .prepareStatement("INSERT INTO items(name, value) VALUES (?, ?)");) {
-            statement.setString(1, item.getname());
-            statement.setDouble(2, item.getvalue());
-            return readLatest();
-        } catch (Exception e) {
-            LOGGER.debug(e);
-            LOGGER.error(e.getMessage());
-        }
-        return null;
-	
+	public Item create(Item item) {
+		try (Connection connection = DatabaseUtilities.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("INSERT INTO items (name, value) VALUES (?,?)");) {
+			statement.setString(1, item.getname());
+			statement.setDouble(2, item.getvalue());
+			statement.executeUpdate();
+			return readLatest();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+        
+		}
+		return null;
 
 }
 
@@ -79,13 +81,8 @@ public class ItemDao implements IDomainDao<Item> {
         }
         return null;
     }
-	@Override
-	public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
-	        Long id = resultSet.getLong("id");
-	        String name = resultSet.getString("name");
-	        double value = resultSet.getDouble("value");
-	        return new Item(id, name, value);
-	}
+	
+	
 
 
 	 @Override
@@ -106,9 +103,28 @@ public class ItemDao implements IDomainDao<Item> {
 	}
 
 
-	@Override
-	public int delete(long id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 @Override
+	    public int delete(long id) {
+	        try (Connection connection = DatabaseUtilities.getInstance().getConnection();
+	                Statement statement = connection.createStatement();) {
+	            return statement.executeUpdate("delete from items where id = " + id);
+	        } catch (Exception e) {
+	            LOGGER.debug(e);
+	            LOGGER.error(e.getMessage());
+	        }
+	        return 0;
+		}
+
+	 @Override
+		public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
+		        Long id = resultSet.getLong("id");
+		        String name = resultSet.getString("name");
+		        double value = resultSet.getDouble("value");
+		        return new Item(id, name, value);
+
+		        
+		        
+	 }
+	 
+	 
 }
