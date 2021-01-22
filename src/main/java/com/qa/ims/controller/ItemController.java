@@ -26,31 +26,42 @@ public class ItemController implements ICrudController<Item> {
     public List<Item> readAll() {
         List<Item> items = itemDao.readAll();
         for (Item item : items) {
-            LOGGER.info(item);
+            LOGGER.info(item.toString());
         }
         return items;
     }
 
     @Override
     public Item create() {
-        LOGGER.info("Please enter an item name");
-        String itemName = javaUtilities.getString();
-        LOGGER.info("Please the value of the item");
-        Double itemValue = javaUtilities.getDouble();
-        Item item = itemDao.create(new Item(itemName, itemValue));
+        LOGGER.info("Please enter an item");
+        String name = javaUtilities.getString();
+        LOGGER.info("Please enter an item value");
+        double value = javaUtilities.getDouble();
+        Item item = itemDao.create(new Item(name, value));
         LOGGER.info("Item created");
         return item;
     }
 
-	@Override
-	public Item update() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Item update() {
+        LOGGER.info("Please enter the id of the item you would like to update");
+        Long id = javaUtilities.getLong();
+        LOGGER.info("Please enter an item name");
+        String name = javaUtilities.getString();
+        LOGGER.info("Please enter an item value");
+        double value = javaUtilities.getDouble();
+        Item item = itemDao.update(new Item(id, name, value));
+        LOGGER.info("Item Updated");
+        return item;
+    }
+	
 
-	@Override
-	public int delete() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int delete() {
+        LOGGER.info("Please enter the id of the customer you would like to delete");
+        Long id = javaUtilities.getLong();
+        return itemDao.delete(id);
+
 }
+}
+
