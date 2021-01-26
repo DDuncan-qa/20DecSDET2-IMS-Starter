@@ -40,7 +40,7 @@ public class OrderDao implements IDomainDao<Order> {
     
     private List<Item> getItems(Long id) {
     	List<Long> itemIDs = new ArrayList<>();
-    	
+    	List <Item> finalItem =   new ArrayList<>();
     	try (Connection connection = DatabaseUtilities.getInstance().getConnection();
     			PreparedStatement statement = connection
     					.prepareStatement("select * from orders_items where fk_orders_id = ?");) {
@@ -54,8 +54,14 @@ public class OrderDao implements IDomainDao<Order> {
     		LOGGER.debug(e);
     		LOGGER.error(e.getMessage());
     	}
+    	   for (Long i : itemIDs) {
+    		   
+    		
+    		finalItem.add(itemDao.read(i));
+    	   }
     	   
-    	 return null;
+    	   
+    	 return finalItem;
     	
     }
     
@@ -160,19 +166,19 @@ public class OrderDao implements IDomainDao<Order> {
     	
   //  }
     
-    public Order addItem(Long orderID, Long itemID) {
+    public Order addItem(Long orderId, Long id) {
     	try (Connection connection = DatabaseUtilities.getInstance().getConnection();
                 PreparedStatement statement = connection
                         .prepareStatement("INSERT INTO orders_items (fk_orders_id, fk_items_id) VALUES (?, ?)")) {
-            statement.setLong(1, orderID);
-            statement.setLong(2, itemID);
+            statement.setLong(1, orderId);
+            statement.setLong(2, id);
             statement.executeUpdate();
         } catch (Exception e) {
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
         }
      //   calaculateValue(orderID);
-        return readOrder(orderID);
+        return readOrder(orderId);
         
         
     }
@@ -180,7 +186,7 @@ public class OrderDao implements IDomainDao<Order> {
     public Order removeItem(Long orderID, Long itemID) {
     	try (Connection connection = DatabaseUtilities.getInstance().getConnection();
                 PreparedStatement statement = connection
-                        .prepareStatement("DELETE FROM orders_items fk_orders_id = ? and  fk_items_id = ?")) {
+                        .prepareStatement("DELETE FROM orders_items WHERE fk_orders_id = ? and  fk_items_id = ?")) {
             statement.setLong(1, orderID);
             statement.setLong(2, itemID);
             statement.executeUpdate();
