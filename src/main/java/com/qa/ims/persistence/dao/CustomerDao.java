@@ -34,7 +34,7 @@ public class CustomerDao implements IDomainDao<Customer> {
         return null;
     }
 
-    public Customer read(Long id) {
+    public Customer readCustomer(Long id) {
         try (Connection connection = DatabaseUtilities.getInstance().getConnection();
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?");) {
             statement.setLong(1, id);
@@ -87,7 +87,7 @@ public class CustomerDao implements IDomainDao<Customer> {
             statement.setString(2, customer.getSurname());
             statement.setLong(3, customer.getId());
             statement.executeUpdate();
-            return read(customer.getId());
+            return readCustomer(customer.getId());
         } catch (Exception e) {
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
