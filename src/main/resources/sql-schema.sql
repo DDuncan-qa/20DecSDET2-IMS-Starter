@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `ims` . `items` (
 	`fk_customers_id` INT NOT NULL,
 	`order_value` DOUBLE,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`fk_customers_id`) REFERENCES customers(`id`)
+	FOREIGN KEY (`fk_customers_id`) REFERENCES customers(`id`) ON DELETE CASCADE
     );
     
     
@@ -31,5 +31,5 @@ CREATE TABLE IF NOT EXISTS `ims` . `items` (
       CREATE TABLE IF NOT EXISTS `ims` . `orders_items` (
 	`fk_orders_id` INT NOT NULL,
 	`fk_items_id` INT NOT NULL,
-	FOREIGN KEY (`fk_orders_id`) REFERENCES orders(`id`),
-	FOREIGN KEY (`fk_items_id`) REFERENCES items(`id`));
+	FOREIGN KEY (`fk_orders_id`) REFERENCES orders(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`fk_items_id`) REFERENCES items(`id`) ON DELETE CASCADE);

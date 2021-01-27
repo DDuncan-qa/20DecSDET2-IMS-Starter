@@ -33,7 +33,7 @@ public class OrderDao implements IDomainDao<Order> {
     public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getLong("id");
         Customer cust = custDao.readCustomer(resultSet.getLong("fk_customers_id"));
-        Double value = resultSet.getDouble("order_value");
+        double value = resultSet.getDouble("order_value");
         List<Item> items = getItems(id);
         return new Order(id, cust, value, items); 
     }
@@ -161,10 +161,19 @@ public class OrderDao implements IDomainDao<Order> {
         return 0;
     }
     
- //   public double calaculateValue (Long id) {
+
+	  
+	 // public double calaculateValue (Long id) {
+	    	
+
+	  
+//  }
+    
+    
+    
     	
     	
-  //  }
+ //  }
     
     public Order addItem(Long orderId, Long id) {
     	try (Connection connection = DatabaseUtilities.getInstance().getConnection();
@@ -177,7 +186,7 @@ public class OrderDao implements IDomainDao<Order> {
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
         }
-     //   calaculateValue(orderID);
+      //  calaculateValue(orderId);
         return readOrder(orderId);
         
         
@@ -194,7 +203,7 @@ public class OrderDao implements IDomainDao<Order> {
              LOGGER.debug(e);
              LOGGER.error(e.getMessage());
          }
- //        calaculateValue(orderID);
+      //   calaculateValue(orderID);
          return readOrder(orderID);	
 	
 
