@@ -1,15 +1,13 @@
 package com.qa.ims.persistence.domain;
 
+import org.junit.Test;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class OrderTest {
 	
-//	@Test
-//	public void testConstructor1() {
-//		Customer customer = new Customer ("J", "M");
-//		Order order = new Order("");
-//	    assertEquals
-//	}
-//	
-//
-// 
-	
+	@Test
+	public void testEquals() {
+		EqualsVerifier.simple().forClass(Order.class).verify();
+	}
 }

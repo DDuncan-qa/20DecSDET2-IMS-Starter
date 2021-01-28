@@ -12,11 +12,8 @@ public class CustomerTest {
 	public void testEquals() {
 		EqualsVerifier.simple().forClass(Customer.class).verify();
 	}
-	@Test
-	public void testConstructor() {
-		Customer customer = new Customer();
-		assertEquals(Customer.class, customer.getClass());
-	}
+	
+
 	
 	
 	
