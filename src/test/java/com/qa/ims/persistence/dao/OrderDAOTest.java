@@ -49,10 +49,13 @@ public void testReadAll() {
 	
 
 
-//	@Test
-//	public void testReadLatest() {
-//		assertEquals(, DAO.readLatest());
-//	}
+	@Test
+	public void testReadLatest() {
+		List<Order> expected = new ArrayList<>();
+		expected.add(new Order(1L, new Customer(1L, "jordan", "harrison"), 501.0));
+		assertEquals(expected, DAO.readLatest());
+		
+	}
 
 
 
@@ -60,8 +63,26 @@ public void testReadAll() {
 	public void testUpdate() {
 	assertEquals(null, DAO.update(null));
 
+	}
+	
+	@Test
+	public void testDelete() {
+		assertEquals(1L, DAO.delete(1L));
 
-
+	}
+	
 }
+		
+//	@Test
+//	public void testreadOrder() {
+//		final long Id = 1L;
+//		assertEquals(new Order (ID,L, 1L), DAO.readOrder(ID));
+	
 
-}
+//	@Test
+//	public void testUpdateAdd(Order) {
+//		assertEquals(Order, DAO.update(Order));
+//	}
+//	
+//	
+//}

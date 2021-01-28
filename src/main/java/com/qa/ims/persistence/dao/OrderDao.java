@@ -167,53 +167,55 @@ public class OrderDao implements IDomainDao<Order> {
 		
 		
 			 
-			 public double calaculateValue (Long id) {
-				
-				 double value = this.getItems(id).stream().map(item -> item.getvalue()).reduce((acc, next) -> acc + next)
-			    			.orElse(0.0);
-			    	this.update(new Order(id,null, value));
-			    	return value;
-
-				 
-				 
-				 
-				 
-				 
-				 
-//				 item.getValue
-//					 
-//                    double value = 0.0;
-//                    
+//			 public double calaculateValue (Long id) {
+//				
+//				 double value = this.getItems(id).stream().map(item -> item.getvalue()).reduce((acc, next) -> acc + next)
+//			    			.orElse(0.0);
+//			    	this.update(new Order(id,null, value));
+//			    	return value;
+//
+//				 
+//				 
+//				 
+//				 
+//		public double calaculateValue (Long id) { 
+//	   List<Long> itemsIDs = new ArrayList<>();
+//	   List <Item> valueItem =   new ArrayList<>(); 	 
+//		double value = 0.0 
+//	     value += resultSet.getDouble("value");
+//	   
+//      for (Long i : itemsIDs ) {           
 //                 
 //						 
-//						 for (Item i : items ) {
+//			finalItem.	 finalItem.add(itemDao.update(value);
 //				    		   
-//					    		item.getvalue 
+//					    	
 //					    	
 //					    	   this.update(new Order(id,value));
 //					    	   
 //					    	   
 //					    	 return value;
 					    	
-					    }
+//					    }
 				 
 				 
 				 
 				 
 				 
-				 
-		//		 this.update(new Order(id,value));
-				 
-				 
-			//	 for (double i : orderValue) {
-				 
-				 
-				 
-				 
-				 
-				 
-		//		List<Long> itemIDs = new ArrayList<>();
-			//    List <Item> finalItem =   new ArrayList<>();
+//			 List<Long> itemIDs = new ArrayList<>();
+//		    	List <Item> valueItem =   new ArrayList<>();
+//		    	
+//		    	   for (Long i : itemIDs) {
+//		    		   
+//		    		item.getvalue
+//		    		
+//		    		valueItem.add(itemDao.read(i));
+//		    	   }
+//		    	   
+//		    	   
+//		    	 return finalItem;
+//		    	
+//		    }
 				 
 				 
 			    			
@@ -247,7 +249,7 @@ public class OrderDao implements IDomainDao<Order> {
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
         }
-      calaculateValue(orderId);
+    //  calaculateValue(orderId);
         return readOrder(orderId);
         
         
@@ -264,7 +266,7 @@ public class OrderDao implements IDomainDao<Order> {
              LOGGER.debug(e);
              LOGGER.error(e.getMessage());
          }
-      calaculateValue(orderID);
+  //    calaculateValue(orderID);
          return readOrder(orderID);	
 	
 
