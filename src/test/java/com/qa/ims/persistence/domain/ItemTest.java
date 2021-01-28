@@ -12,8 +12,8 @@ public class ItemTest {
 	@Test
 	public void testConstructor1() {
 		Item item = new Item("Cheese", 3.00);
-		assertEquals("Cheese", item.
-		assertEquals(3.00, item.
+		assertEquals("Cheese", item.getname());
+		assertEquals(3.00, ite
 	
 	}
 				@Test

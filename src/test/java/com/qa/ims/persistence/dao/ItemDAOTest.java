@@ -33,7 +33,7 @@ public void testCreate() {
     @Test
     public void testReadAll () {
         	List<Item> expected = new ArrayList<>();
-    	expected.add(new Item("Laptop", 500.00));
+    	expected.add(new Item(1L, "Laptop", 500.00));
     	assertEquals(expected, DAO.readAll());
     }
     
@@ -50,7 +50,7 @@ public void testCreate() {
   
     	@Test
     	public void testUpdate() {
-    		final Item Updated = new Item (1L,"Laptop", 500.00);
+    		final Item Updated = new Item (1L,"Apple", 1.00);
     		assertEquals(Updated, DAO.update(Updated));
     		
     		 

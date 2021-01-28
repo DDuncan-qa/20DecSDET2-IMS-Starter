@@ -8,13 +8,13 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class CustomerTest {
 
-//	@Test
-//	public void testEquals() {
-//		EqualsVerifier.simple().forClass(Customer.class).verify();
-//	}
+	@Test
+	public void testEquals() {
+		EqualsVerifier.simple().forClass(Customer.class).verify();
+	}
 	@Test
 	public void testConstructor() {
-		Customer customer = new Customer(1L, "j", "h");
+		Customer customer = new Customer();
 		assertEquals(Customer.class, customer.getClass());
 	}
 	
