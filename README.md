@@ -8,31 +8,23 @@ Java project that allows user to manage customers,items and orders which are sto
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
+```
 Java 11
 Git
 MySQL 8.0 (at least)
 Maven
-
-```
-Give examples
 ```
 
 ### Installing
 
-After making sure you have the prerequisites installed clone https://github.com/DDuncan-qa/20DecSDET2-IMS-Starter.git to your system
+
 
 ```
-Give the example
+After making sure you have the prerequisites installed clone https://github.com/DDuncan-qa/20DecSDET2-IMS-Starter.git to your system in Git Bash
 ```
 
-And repeat
 
-```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 To run the JUnit test in the package make sure you are in the src/test/java folder. Then right click and select run Coverage as - JUnit Test
