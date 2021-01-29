@@ -1,68 +1,48 @@
-Coverage: 34%
+Coverage: 49.5%
 # Project Title
 
-One Paragraph of project description goes here
+Java project that allows user to manage customers,items and orders which are stored in an SQL Database.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
-What things you need to install the software and how to install them
-
 ```
-Give examples
+Java 11
+Git
+MySQL 8.0 (at least)
+Maven
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
 
 ```
-Give the example
+After making sure you have the prerequisites installed clone https://github.com/DDuncan-qa/20DecSDET2-IMS-Starter.git to your system in Git Bash
 ```
 
-And repeat
 
-```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
-
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+To run the JUnit test in the package make sure you are in the src/test/java folder. Then right click and select run Coverage as - JUnit Test
 
 ### Unit Tests 
-
-Explain what these tests test, why and how to run them
+Unit tests check how functional your code is
+ 
+```
+ @Test
+public void testCreate() {
+    final Item created = new Item(3L,"pear", 2.00);
+    assertEquals(created, DAO.create(created));
 
 ```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
+Start application by deploying in the command line ava -jar ims-0.0.1-jar-with-dependencies.jar
+Regularly push things up to your GitHub
 
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 

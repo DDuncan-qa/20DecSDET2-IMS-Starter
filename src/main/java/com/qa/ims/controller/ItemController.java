@@ -42,6 +42,7 @@ public class ItemController implements ICrudController<Item> {
         return item;
     }
 
+
     @Override
     public Item update() {
         LOGGER.info("Please enter the id of the item you would like to update");
@@ -64,5 +65,20 @@ public class ItemController implements ICrudController<Item> {
 
 
 }
+}
+
+
+	@Override
+	public Item update() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
 

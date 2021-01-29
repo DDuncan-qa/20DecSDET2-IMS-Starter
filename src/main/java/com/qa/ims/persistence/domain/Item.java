@@ -10,10 +10,14 @@ public class Item {
 		this.setname(name);
 		this.setvalue(value);
 	}
+
 	public Item (Long id, String name, double value) {
 
 	public Item(Long id, String name, double value) {
 
+
+
+	public Item(Long id, String name, double value) 
 		this.setId(id);
 		this.setname(name);
 		this.setvalue(value);
@@ -47,7 +51,6 @@ public class Item {
 
 	public void setvalue(double value) {
 		this.value = value;
-
 	}
 
 	@Override

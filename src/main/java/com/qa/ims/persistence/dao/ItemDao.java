@@ -18,6 +18,7 @@ public class ItemDao implements IDomainDao<Item> {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
+
    
     @Override
 	public Item create(Item item) {
@@ -34,6 +35,20 @@ public class ItemDao implements IDomainDao<Item> {
         
 		}
 		return null;
+
+    @Override
+    public Item create(Item item) {
+        try (Connection connection = DatabaseUtilities.getInstance().getConnection();
+                PreparedStatement statement = connection
+                        .prepareStatement("INSERT INTO items(name, value) VALUES (?, ?)");) {
+            statement.setString(1, item.getname());
+            statement.setDouble(2, item.getvalue());
+            return readLatest();
+        } catch (Exception e) {
+            LOGGER.debug(e);
+            LOGGER.error(e.getMessage());
+        }
+        return null;
 
 }
 
@@ -81,6 +96,7 @@ public class ItemDao implements IDomainDao<Item> {
         }
         return null;
     }
+
 	
 	
 
@@ -127,4 +143,28 @@ public class ItemDao implements IDomainDao<Item> {
 	 }
 	 
 	 
+
+
+	@Override
+	public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
+	        Long id = resultSet.getLong("id");
+	        String name = resultSet.getString("name");
+	        double value = resultSet.getDouble("value");
+	        return new Item(id, name, value);
+	}
+
+
+	@Override
+	public Item update(Item t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int delete(long id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
 
