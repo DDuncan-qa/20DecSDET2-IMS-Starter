@@ -5,20 +5,25 @@ public class Item {
 	private Long id;
 	private String name;
 	private double value;
-	
+
 	public Item(String name, double value) {
 		this.setname(name);
 		this.setvalue(value);
 	}
-
 	public Item (Long id, String name, double value) {
+
+	public Item(Long id, String name, double value) {
+
 		this.setId(id);
 		this.setname(name);
 		this.setvalue(value);
 		
 		
-	
-	}
+		
+		
+
+
+}
 
 	public Long getId() {
 		return id;
@@ -42,6 +47,7 @@ public class Item {
 
 	public void setvalue(double value) {
 		this.value = value;
+
 	}
 
 	@Override

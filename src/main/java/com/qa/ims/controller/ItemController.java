@@ -62,6 +62,7 @@ public class ItemController implements ICrudController<Item> {
         Long id = javaUtilities.getLong();
         return itemDao.delete(id);
 
+
 }
 }
 
