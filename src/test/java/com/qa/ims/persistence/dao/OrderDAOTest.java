@@ -34,7 +34,7 @@ public class OrderDAOTest {
 
 	@Test
 	public void testCreate() {
-		final Order created = new Order(4L, new Customer(1L, "jordan", "harrison"), 0.0);
+		final Order created = new Order(6L, new Customer(1L, "jordan", "harrison"), 0.0);
 		assertEquals(created, DAO.create(created));
 
 	}
@@ -45,13 +45,15 @@ public class OrderDAOTest {
 		expected.add(new Order(1L, new Customer(1L, "jordan", "harrison"), 501.0));
 		expected.add(new Order(2L, new Customer(1L, "jordan", "harrison"), 0.0));
 		expected.add(new Order(3L, new Customer(1L, "jordan", "harrison"), 0.0));
+		expected.add(new Order(4L, new Customer(1L, "jordan", "harrison"), 0.0));
+		expected.add(new Order(5L, new Customer(1L, "jordan", "harrison"), 0.0));
 		assertEquals(expected, DAO.readAll());
 
 	}
 
 	@Test
 	public void testReadLatest() {
-		final Order expected = new Order(3L, new Customer(1L, "jordan", "harrison"), 0.0);
+		final Order expected = new Order(5L, new Customer(1L, "jordan", "harrison"), 0.0);
 		assertEquals(expected, DAO.readLatest());
 
 	}

@@ -167,12 +167,12 @@ public class OrderDao implements IDomainDao<Order> {
 		
 		
 			 
-//			 public double calaculateValue (Long id) {
-//				
-//				 double value = this.getItems(id).stream().map(item -> item.getvalue()).reduce((acc, next) -> acc + next)
-//			    			.orElse(0.0);
-//			    	this.update(new Order(id,null, value));
-//			    	return value;
+			 public double calaculateValue (Long id) {
+				
+				 double value = this.getItems(id).stream().map(item -> item.getvalue()).reduce((acc, next) -> acc + next)
+			    			.orElse(0.0);
+			    	this.update(new Order(id,null, value));
+			    	return value;
 //
 //				 
 //				 
@@ -190,7 +190,7 @@ public class OrderDao implements IDomainDao<Order> {
 //			finalItem.	 finalItem.add(itemDao.update(value);
 //				    		   
 //					    	
-//					    	
+//					    //		    		item.getvalue	
 //					    	   this.update(new Order(id,value));
 //					    	   
 //					    	   
@@ -201,28 +201,9 @@ public class OrderDao implements IDomainDao<Order> {
 				 
 				 
 				 
-				 
-//			 List<Long> itemIDs = new ArrayList<>();
-//		    	List <Item> valueItem =   new ArrayList<>();
-//		    	
-//		    	   for (Long i : itemIDs) {
-//		    		   
-//		    		item.getvalue
-//		    		
-//		    		valueItem.add(itemDao.read(i));
-//		    	   }
-//		    	   
-//		    	   
-//		    	 return finalItem;
-//		    	
-//		    }
-				 
+
 				 
 			    			
-			    		
-			    		
-			    	
-			    	
 			    	
 			 
 	    	
@@ -230,7 +211,7 @@ public class OrderDao implements IDomainDao<Order> {
 	  
 			// use get items method and store in value in empty variable update order and use value variable and put as order value
 	        	
-
+			 }
     
     
     
@@ -249,7 +230,7 @@ public class OrderDao implements IDomainDao<Order> {
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
         }
-    //  calaculateValue(orderId);
+        calaculateValue(orderId);
         return readOrder(orderId);
         
         
@@ -266,7 +247,7 @@ public class OrderDao implements IDomainDao<Order> {
              LOGGER.debug(e);
              LOGGER.error(e.getMessage());
          }
-  //    calaculateValue(orderID);
+        calaculateValue(orderID);
          return readOrder(orderID);	
 	
 
