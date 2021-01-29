@@ -31,12 +31,14 @@ To run the JUnit test in the package make sure you are in the src/test/java fold
 
 ### Unit Tests 
 Unit tests check how functional your code is
- Testing Create method in Item
+ 
+```
  @Test
 public void testCreate() {
     final Item created = new Item(3L,"pear", 2.00);
     assertEquals(created, DAO.create(created));
 
+```
 ## Deployment
 Start application by deploying in the command line ava -jar ims-0.0.1-jar-with-dependencies.jar
 Regularly push things up to your GitHub
