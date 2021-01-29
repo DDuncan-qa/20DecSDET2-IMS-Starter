@@ -1,4 +1,7 @@
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE `orders_items`;
+DROP TABLE `orders`;
+DROP TABLE `items`;
+DROP TABLE `customers`;
 
 CREATE TABLE IF NOT EXISTS `customers` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -6,3 +9,31 @@ CREATE TABLE IF NOT EXISTS `customers` (
     `surname` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
+
+
+
+CREATE TABLE IF NOT EXISTS `items`  (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NOT NULL,
+	`value` DECIMAL(5,2) NOT NULL,
+	PRIMARY KEY (`id`)
+    );
+    
+ 
+    
+ CREATE TABLE IF NOT EXISTS `orders` (  
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`fk_customers_id` INT NOT NULL,
+	`order_value` DOUBLE,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`fk_customers_id`) REFERENCES customers(`id`) ON DELETE CASCADE
+    );  
+    
+
+
+CREATE TABLE IF NOT EXISTS `orders_items` (
+	`fk_orders_id` INT NOT NULL,
+	`fk_items_id` INT NOT NULL,
+	FOREIGN KEY (`fk_orders_id`) REFERENCES orders(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`fk_items_id`) REFERENCES items(`id`) ON DELETE CASCADE
+	);
